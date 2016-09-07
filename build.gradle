@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.0.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		maven {
+        url 'https://repo.spring.io/libs-milestone'
+    	}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+
+jar {
+	baseName = 'demo'
+	version = '0.0.1-SNAPSHOT'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework:spring-webmvc:4.2.2.RELEASE')
+	compile('org.springframework:spring-orm:4.2.2.RELEASE')
+	compile('org.hibernate:hibernate-core:5.0.2.Final')
+	compile('org.javassist:javassist:3.15.0-GA')
+	compile('mysql:mysql-connector-java:5.1.6')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
