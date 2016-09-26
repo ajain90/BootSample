@@ -29,13 +29,34 @@ repositories {
 	mavenCentral()
 }
 
+configurations.all {
+   exclude group: "commons-logging", module: "commons-logging"
+}
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework:spring-webmvc:4.2.2.RELEASE')
+	compile('mysql:mysql-connector-java:5.1.6')
+	
+	//aop + aspectj
+	compile ('org.springframework:spring-aop:4.3.3.RELEASE')
+	compile ('org.aspectj:aspectjrt:1.7.3')
+	compile ('aspectj:aspectjweaver:1.5.4')
+	
+	
+	//orm dependencies start
 	compile('org.springframework:spring-orm:4.2.2.RELEASE')
 	compile('org.hibernate:hibernate-core:5.0.2.Final')
 	compile('org.javassist:javassist:3.15.0-GA')
-	compile('mysql:mysql-connector-java:5.1.6')
+	
+	
+	//junit dependencies start	
+	compile ('org.mockito:mockito-all:1.8.4')
+	compile ('org.springframework:spring-test:4.0.5.RELEASE')
+	compile('org.powermock:powermock-api-mockito:1.6.5')
+	compile('org.powermock:powermock-module-junit4:1.6.5')
+	
+	
+	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }

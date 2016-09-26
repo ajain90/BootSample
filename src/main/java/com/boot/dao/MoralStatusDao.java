@@ -1,4 +1,4 @@
-package com.boot.dao.contract;
+package com.boot.dao;
 
 import java.util.Date;
 

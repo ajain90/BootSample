@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.boot.beans.MoralSatusService;
 import com.boot.models.AggregatMoralStatusVO;
+import com.boot.service.MoralStatusService;
 
 @RestController
 public class MoralStatusController {
 
 	@Autowired
-	MoralSatusService moralAggStatusBean;
+	MoralStatusService moralAggStatusBean;
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public AggregatMoralStatusVO fetchMoralStatus() {

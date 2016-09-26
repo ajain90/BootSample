@@ -1,0 +1,19 @@
+spring:
+  profiles.active: dev
+---
+spring:
+  profiles: dev
+logging:
+  level:
+    org.springframework.web: WARN
+    com.boot: TRACE
+    org.hibernate: WARN
+---
+spring:
+  profiles: production
+logging:
+  file: logs/dev_app.log
+  level:
+    org.springframework.web: INFO
+    com.boot: INFO
+    org.hibernate: INFO

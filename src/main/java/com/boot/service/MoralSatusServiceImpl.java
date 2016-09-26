@@ -1,4 +1,4 @@
-package com.boot.beans;
+package com.boot.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,17 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.boot.dao.impl.MoralStausDaoImpl;
+import com.boot.dao.MoralStatusDao;
 import com.boot.entity.MoralStatusEntity;
 import com.boot.models.AggregatMoralStatusVO;
 
 @Service
 @Transactional
-public class MoralSatusService {
+public class MoralSatusServiceImpl implements MoralStatusService {
 
 	@Autowired
-	private MoralStausDaoImpl moralStatusDao;
+	private MoralStatusDao moralStatusDao;
 
+	@Override
 	public AggregatMoralStatusVO getMoralStatusByDate(Date date) {
 		// set default values to object
 		AggregatMoralStatusVO moralAggStatus = new AggregatMoralStatusVO("0.0", "0.0", "0.0");
@@ -32,6 +33,7 @@ public class MoralSatusService {
 		return moralAggStatus;
 	}
 
+	@Override
 	public void populateMoralStatus(String moralType) {
 		MoralStatusEntity currentMoralData = moralStatusDao.getMoralStatusByDate(Calendar.getInstance().getTime());
 		if (null == currentMoralData) {
