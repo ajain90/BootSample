@@ -1,0 +1,17 @@
+{
+  "request":
+    {
+      "urlPattern": "/user/1",
+      "method": "GET"
+    },
+
+  "response":
+    {
+      "status": 200,
+      "headers":
+        {
+          "Content-Type" : "application/json"
+        },
+      "bodyFileName": "response.json"
+    }
+}

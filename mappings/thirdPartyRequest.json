@@ -1,0 +1,17 @@
+{
+ "request":
+ {
+ "urlPattern": "/analytics",
+ "method": "GET"
+ },
+ 
+ "response":
+ {
+ "status": 200,
+ "headers":
+ {
+ "Content-Type" : "application/json"
+ },
+ "bodyFileName": "thirdpartyresponse.json"
+ }
+}

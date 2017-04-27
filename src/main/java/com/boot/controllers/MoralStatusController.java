@@ -1,40 +1,14 @@
 package com.boot.controllers;
 
-import java.util.Calendar;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.boot.models.AggregatMoralStatusVO;
-import com.boot.service.MoralStatusService;
 
 @RestController
 public class MoralStatusController {
 
-	@Autowired
-	MoralStatusService moralAggStatusBean;
-
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public AggregatMoralStatusVO fetchMoralStatus() {
-
-		return moralAggStatusBean.getMoralStatusByDate(Calendar.getInstance().getTime());
+	@RequestMapping(path = "/test")
+	public boolean executeTest() {
+		return true;
 	}
 
-	@RequestMapping(path = "/captureResponse/{moralType}")
-	public void execute(@PathVariable("moralType") String moralType) {
-		if (isValidType(moralType)) {
-			moralAggStatusBean.populateMoralStatus(moralType);
-		}
-	}
-
-	private boolean isValidType(String moralType) {
-		if (moralType.equalsIgnoreCase("high") || moralType.equalsIgnoreCase("low")
-				|| moralType.equalsIgnoreCase("avg")) {
-			return true;
-		}
-		return false;
-	}
 }
